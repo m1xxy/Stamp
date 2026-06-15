@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassan Stamps | Premium Self-Inking Stamps</title>
+    
+    <!-- SEO & Meta -->
+    <meta name="description" content="Pakistan's leading importer of premium self-inking stamps, date stamps, and heavy-duty office stamps. B2B wholesale available.">
+    <meta name="keywords" content="Hassan Stamps, self-inking stamps Pakistan, custom stamps Gujranwala, Shiny stamps alternative, B2B stamp supplier">
+
+    <!-- Fonts: San Francisco styling for iOS look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        ios: {
+                            blue: '#007AFF',
+                            blueHover: '#0056b3',
+                            bg: '#F2F2F7',
+                            card: '#FFFFFF',
+                            text: '#1C1C1E',
+                            subtext: '#8E8E93',
+                            border: '#E5E5EA'
+                        }
+                    },
+                    boxShadow: {
+                        'ios': '0 4px 24px rgba(0, 0, 0, 0.06)',
+                        'ios-lg': '0 10px 40px rgba(0, 0, 0, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #F2F2F7;
+            color: #1C1C1E;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* iOS Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Product Image Zoom */
+        .product-image-container {
+            overflow: hidden;
+        }
+        .product-image {
+            transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+        }
+        .group:hover .product-image {
+            transform: scale(1.08);
+        }
+
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F2F2F7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C7C7CC;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8E8E93;
+        }
+
+        /* Spec Table iOS Style */
+        .spec-table tr {
+            border-bottom: 1px solid #E5E5EA;
+        }
+        .spec-table tr:last-child {
+            border-bottom: none;
+        }
+        
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="antialiased font-sans flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-8 h-8 bg-ios-blue text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-sm">
+                        H
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-ios-text">Hassan Stamps</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#categories" class="text-sm font-medium text-ios-text hover:text-ios-blue transition-colors">Categories</a>
+                    <a href="#featured" class="text-sm font-medium text-ios-text hover:text-ios-blue transition-colors">Featured</a>
+                    <a href="#wholesale" class="text-sm font-medium text-ios-text hover:text-ios-blue transition-colors">Wholesale</a>
+                    <a href="#contact" class="text-sm font-medium text-ios-text hover:text-ios-blue transition-colors">Contact</a>
+                    <a href="#wholesale" class="bg-ios-blue text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-ios-blueHover transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Dealer Login</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-ios-text focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white pt-20 px-6 md:hidden">
+        <div class="flex flex-col space-y-6 text-lg font-semibold">
+            <a href="#categories" class="mobile-link text-ios-text border-b border-ios-border pb-3">Products</a>
+            <a href="#featured" class="mobile-link text-ios-text border-b border-ios-border pb-3">Featured</a>
+            <a href="#wholesale" class="mobile-link text-ios-text border-b border-ios-border pb-3">Wholesale Inquiry</a>
+            <a href="#contact" class="mobile-link text-ios-text border-b border-ios-border pb-3">Contact Us</a>
+            <a href="#wholesale" class="mobile-link bg-ios-blue text-white text-center py-3 rounded-2xl shadow-sm mt-4">Become a Dealer</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
+        <!-- Three.js Canvas Container -->
+        <div id="hero-canvas"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left gs-reveal">
+                    <div class="inline-block bg-blue-50 text-ios-blue px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 shadow-sm border border-blue-100">
+                        Imported Premium Quality from China
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-bold tracking-tight text-ios-text mb-6 leading-tight">
+                        The Standard of <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-ios-blue to-blue-400">Precision Stamping.</span>
+                    </h1>
+                    <p class="text-lg text-ios-subtext mb-8 max-w-lg mx-auto lg:mx-0 font-light leading-relaxed">
+                        Hassan Stamps brings world-class, durable self-inking stamps to Pakistan. Engineered for heavy-duty corporate use, perfect for banks, offices, and government sectors.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#featured" class="bg-ios-blue text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-ios-blueHover transition-all shadow-ios hover:shadow-ios-lg transform hover:-translate-y-1 text-center">
+                            Explore Catalog
+                        </a>
+                        <a href="#wholesale" class="bg-white text-ios-text border border-ios-border px-8 py-4 rounded-full font-medium text-lg hover:bg-gray-50 transition-all shadow-sm text-center">
+                            Partner with Us
+                        </a>
+                    </div>
+                </div>
+                <!-- 3D Spacer for Desktop (Canvas renders here visually) -->
+                <div class="hidden lg:block h-[500px]"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-20 bg-ios-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 gs-reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-ios-text mb-4 tracking-tight">Professional Solutions</h2>
+                <p class="text-ios-subtext max-w-2xl mx-auto">Explore our comprehensive range of marking products designed for every business need.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+                <!-- Category 1 -->
+                <div class="bg-white rounded-3xl p-6 text-center shadow-ios hover:shadow-ios-lg transition-all duration-300 cursor-pointer group gs-reveal">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-ios-blue mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-stamp text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm md:text-base text-ios-text">Self-Inking</h3>
+                </div>
+                <!-- Category 2 -->
+                <div class="bg-white rounded-3xl p-6 text-center shadow-ios hover:shadow-ios-lg transition-all duration-300 cursor-pointer group gs-reveal" style="transition-delay: 50ms;">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-ios-blue mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-regular fa-calendar-days text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm md:text-base text-ios-text">Date Stamps</h3>
+                </div>
+                <!-- Category 3 -->
+                <div class="bg-white rounded-3xl p-6 text-center shadow-ios hover:shadow-ios-lg transition-all duration-300 cursor-pointer group gs-reveal" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-ios-blue mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-arrow-up-1-9 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm md:text-base text-ios-text">Numbering</h3>
+                </div>
+                <!-- Category 4 -->
+                <div class="bg-white rounded-3xl p-6 text-center shadow-ios hover:shadow-ios-lg transition-all duration-300 cursor-pointer group gs-reveal" style="transition-delay: 150ms;">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-ios-blue mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-circle-notch text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm md:text-base text-ios-text">Round Stamps</h3>
+                </div>
+                <!-- Category 5 -->
+                <div class="bg-white rounded-3xl p-6 text-center shadow-ios hover:shadow-ios-lg transition-all duration-300 cursor-pointer group gs-reveal" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-ios-blue mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-building text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm md:text-base text-ios-text">Heavy-Duty</h3>
+                </div>
+                <!-- Category 6 -->
+                <div class="bg-white rounded-3xl p-6 text-center shadow-ios hover:shadow-ios-lg transition-all duration-300 cursor-pointer group gs-reveal" style="transition-delay: 250ms;">
+                    <div class="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-ios-blue mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-pen-nib text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-sm md:text-base text-ios-text">Custom Logo</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products / Clean Catalog -->
+    <section id="featured" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12 gs-reveal">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-ios-text mb-2 tracking-tight">Featured Catalog</h2>
+                    <p class="text-ios-subtext">Premium models ready for wholesale.</p>
+                </div>
+                <a href="#" class="hidden md:block text-ios-blue font-medium hover:underline">View All Products <i class="fa-solid fa-chevron-right text-xs ml-1"></i></a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-3xl border border-ios-border p-6 shadow-sm hover:shadow-ios-lg transition-all duration-300 group gs-reveal">
+                    <!-- Image Area (White Background, Zoom) -->
+                    <div class="product-image-container bg-gray-50 rounded-2xl aspect-square mb-6 flex items-center justify-center relative">
+                        <span class="absolute top-4 left-4 bg-white px-3 py-1 text-xs font-bold rounded-full shadow-sm text-ios-blue">Best Seller</span>
+                        <img src="https://placehold.co/600x600/f8f9fa/007AFF?text=Hassan+S-842\nSelf-Inking" alt="Hassan S-842" class="product-image w-3/4 h-3/4 object-contain mix-blend-multiply">
+                        <div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm w-8 h-8 rounded-full flex items-center justify-center shadow-sm text-ios-subtext opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                        </div>
+                    </div>
+                    <!-- Info -->
+                    <div>
+                        <h3 class="text-xl font-bold text-ios-text mb-1">Hassan S-842</h3>
+                        <p class="text-sm text-ios-subtext mb-4">Premium Self-Inking Text Stamp</p>
+                        
+                        <!-- Specs Table -->
+                        <table class="w-full text-sm text-left spec-table mb-6">
+                            <tr>
+                                <td class="py-2 text-ios-subtext">Imprint Size</td>
+                                <td class="py-2 font-medium text-right">14 x 38 mm</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-ios-subtext">Lines of Text</td>
+                                <td class="py-2 font-medium text-right">Up to 3</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-ios-subtext">Ink Pad</td>
+                                <td class="py-2 font-medium text-right">Replaceable</td>
+                            </tr>
+                        </table>
+
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-xs text-ios-subtext block">Wholesale (Box of 10)</span>
+                                <span class="text-lg font-bold text-ios-text">Rs. 4,500</span>
+                            </div>
+                            <button class="bg-ios-bg hover:bg-ios-blue hover:text-white text-ios-blue w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-3xl border border-ios-border p-6 shadow-sm hover:shadow-ios-lg transition-all duration-300 group gs-reveal" style="transition-delay: 100ms;">
+                    <div class="product-image-container bg-gray-50 rounded-2xl aspect-square mb-6 flex items-center justify-center relative">
+                        <img src="https://placehold.co/600x600/f8f9fa/007AFF?text=Hassan+D-300\nDate+Stamp" alt="Hassan D-300" class="product-image w-3/4 h-3/4 object-contain mix-blend-multiply">
+                        <div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm w-8 h-8 rounded-full flex items-center justify-center shadow-sm text-ios-subtext opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-ios-text mb-1">Hassan D-300</h3>
+                        <p class="text-sm text-ios-subtext mb-4">Heavy-Duty Office Date Stamp</p>
+                        
+                        <table class="w-full text-sm text-left spec-table mb-6">
+                            <tr>
+                                <td class="py-2 text-ios-subtext">Date Height</td>
+                                <td class="py-2 font-medium text-right">4 mm</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-ios-subtext">Format</td>
+                                <td class="py-2 font-medium text-right">DD-MM-YYYY</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-ios-subtext">Frame</td>
+                                <td class="py-2 font-medium text-right">Steel Core</td>
+                            </tr>
+                        </table>
+
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-xs text-ios-subtext block">Wholesale (Box of 5)</span>
+                                <span class="text-lg font-bold text-ios-text">Rs. 6,250</span>
+                            </div>
+                            <button class="bg-ios-bg hover:bg-ios-blue hover:text-white text-ios-blue w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-3xl border border-ios-border p-6 shadow-sm hover:shadow-ios-lg transition-all duration-300 group gs-reveal" style="transition-delay: 200ms;">
+                    <div class="product-image-container bg-gray-50 rounded-2xl aspect-square mb-6 flex items-center justify-center relative">
+                        <img src="https://placehold.co/600x600/f8f9fa/007AFF?text=Hassan+R-542\nRound+Stamp" alt="Hassan R-542" class="product-image w-3/4 h-3/4 object-contain mix-blend-multiply">
+                        <div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm w-8 h-8 rounded-full flex items-center justify-center shadow-sm text-ios-subtext opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-ios-text mb-1">Hassan R-542</h3>
+                        <p class="text-sm text-ios-subtext mb-4">Official Round Seal Stamp</p>
+                        
+                        <table class="w-full text-sm text-left spec-table mb-6">
+                            <tr>
+                                <td class="py-2 text-ios-subtext">Diameter</td>
+                                <td class="py-2 font-medium text-right">42 mm</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-ios-subtext">Use Case</td>
+                                <td class="py-2 font-medium text-right">Gov/Bank Seals</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-ios-subtext">Ink Cap</td>
+                                <td class="py-2 font-medium text-right">Included</td>
+                            </tr>
+                        </table>
+
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-xs text-ios-subtext block">Wholesale (Box of 10)</span>
+                                <span class="text-lg font-bold text-ios-text">Rs. 5,800</span>
+                            </div>
+                            <button class="bg-ios-bg hover:bg-ios-blue hover:text-white text-ios-blue w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="#" class="text-ios-blue font-medium bg-blue-50 px-6 py-3 rounded-full inline-block w-full">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wholesale & Dealer Registration -->
+    <section id="wholesale" class="py-24 bg-ios-bg relative overflow-hidden">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-[2.5rem] shadow-ios-lg overflow-hidden flex flex-col lg:flex-row gs-reveal">
+                
+                <!-- Info Side -->
+                <div class="bg-ios-blue p-10 lg:p-16 lg:w-2/5 text-white flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-3xl lg:text-4xl font-bold mb-4">Become an Authorized Dealer</h2>
+                        <p class="text-blue-100 mb-8 font-light text-lg">
+                            Join Pakistan's fastest-growing network of premium stamp distributors. Benefit from direct Chinese imports without the hassle.
+                        </p>
+                        
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <div class="bg-white/20 p-2 rounded-lg mt-1">
+                                    <i class="fa-solid fa-tags w-5 text-center"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Special B2B Pricing</h4>
+                                    <p class="text-blue-100 text-sm">High profit margins for local vendors.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-white/20 p-2 rounded-lg mt-1">
+                                    <i class="fa-solid fa-truck-fast w-5 text-center"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Nationwide Delivery</h4>
+                                    <p class="text-blue-100 text-sm">Fast shipping from our Gujranwala warehouse.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-white/20 p-2 rounded-lg mt-1">
+                                    <i class="fa-solid fa-shield-halved w-5 text-center"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Quality Guarantee</h4>
+                                    <p class="text-blue-100 text-sm">1-year replacement warranty on mechanism.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="p-10 lg:p-16 lg:w-3/5">
+                    <h3 class="text-2xl font-bold text-ios-text mb-6">Submit Inquiry</h3>
+                    <form id="dealer-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-ios-subtext mb-2">Company/Shop Name</label>
+                                <input type="text" required class="w-full bg-ios-bg border-none rounded-xl px-4 py-3 text-ios-text focus:ring-2 focus:ring-ios-blue transition-all" placeholder="e.g. Awais Stationers">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-ios-subtext mb-2">Contact Person</label>
+                                <input type="text" required class="w-full bg-ios-bg border-none rounded-xl px-4 py-3 text-ios-text focus:ring-2 focus:ring-ios-blue transition-all" placeholder="Full Name">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-ios-subtext mb-2">Phone / WhatsApp</label>
+                                <input type="tel" required class="w-full bg-ios-bg border-none rounded-xl px-4 py-3 text-ios-text focus:ring-2 focus:ring-ios-blue transition-all" placeholder="0300 1234567">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-ios-subtext mb-2">City</label>
+                                <select class="w-full bg-ios-bg border-none rounded-xl px-4 py-3 text-ios-text focus:ring-2 focus:ring-ios-blue transition-all">
+                                    <option>Karachi</option>
+                                    <option>Lahore</option>
+                                    <option>Islamabad</option>
+                                    <option>Gujranwala</option>
+                                    <option>Faisalabad</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-ios-subtext mb-2">Estimated Monthly Volume</label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="volume" class="peer sr-only" checked>
+                                    <div class="text-center px-3 py-2 rounded-xl border border-ios-border peer-checked:bg-blue-50 peer-checked:border-ios-blue peer-checked:text-ios-blue transition-all text-sm font-medium">10 - 50</div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="volume" class="peer sr-only">
+                                    <div class="text-center px-3 py-2 rounded-xl border border-ios-border peer-checked:bg-blue-50 peer-checked:border-ios-blue peer-checked:text-ios-blue transition-all text-sm font-medium">50 - 200</div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="volume" class="peer sr-only">
+                                    <div class="text-center px-3 py-2 rounded-xl border border-ios-border peer-checked:bg-blue-50 peer-checked:border-ios-blue peer-checked:text-ios-blue transition-all text-sm font-medium">200+</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-ios-text text-white font-semibold py-4 rounded-xl hover:bg-black transition-all shadow-md transform hover:-translate-y-0.5">
+                            Register Interest
+                        </button>
+                    </form>
+
+                    <!-- Success Message (Hidden by default) -->
+                    <div id="form-success" class="hidden mt-6 bg-green-50 text-green-700 p-4 rounded-xl flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-xl"></i>
+                        <div>
+                            <h4 class="font-bold">Request Submitted!</h4>
+                            <p class="text-sm">Our wholesale team will contact you within 24 hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer id="contact" class="bg-white border-t border-ios-border pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-ios-blue text-white rounded-lg flex items-center justify-center font-bold text-xl">H</div>
+                        <span class="font-bold text-xl tracking-tight text-ios-text">Hassan Stamps</span>
+                    </div>
+                    <p class="text-ios-subtext text-sm leading-relaxed mb-6">
+                        Premium importer of self-inking and heavy-duty stamps in Pakistan. Serving quality and precision since establishment.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-ios-bg flex items-center justify-center text-ios-text hover:bg-ios-blue hover:text-white transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-ios-bg flex items-center justify-center text-ios-text hover:bg-ios-blue hover:text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-ios-bg flex items-center justify-center text-ios-text hover:bg-ios-blue hover:text-white transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-bold text-ios-text mb-6">Products</h4>
+                    <ul class="space-y-3 text-sm text-ios-subtext">
+                        <li><a href="#" class="hover:text-ios-blue transition-colors">Self-Inking Stamps</a></li>
+                        <li><a href="#" class="hover:text-ios-blue transition-colors">Date & Numbering</a></li>
+                        <li><a href="#" class="hover:text-ios-blue transition-colors">Round Seals</a></li>
+                        <li><a href="#" class="hover:text-ios-blue transition-colors">Replacement Ink Pads</a></li>
+                        <li><a href="#" class="hover:text-ios-blue transition-colors">Custom Rubber Plates</a></li>
+                    </ul>
+                </div>
+
+                <!-- Business -->
+                <div>
+                    <h4 class="font-bold text-ios-text mb-6">Business</h4>
+                    <ul class="space-y-3 text-sm text-ios-subtext">
+                        <li><a href="#wholesale" class="hover:text-ios-blue transition-colors">Wholesale Portal</a></li>
+                        <li><a href="#" class="hover:text-ios-blue transition-colors">Dealer Directory</a></li>
+                        <li><a href="#" class="hover:text-ios-blue transition-colors">Track Order</a></li>
+                        <li><a href="#" class="hover:text-ios-blue transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold text-ios-text mb-6">Head Office</h4>
+                    <ul class="space-y-4 text-sm text-ios-subtext">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-ios-blue"></i>
+                            <span>Main Stamp Market,<br>Gujranwala, Pakistan</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-ios-blue"></i>
+                            <span>+92 300 1234567</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-ios-blue"></i>
+                            <span>sales@hassanstamps.pk</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-ios-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-ios-subtext">© 2026 Hassan Stamps. All rights reserved.</p>
+                <div class="flex gap-4 text-xl text-ios-border">
+                    <i class="fa-brands fa-cc-visa text-gray-400"></i>
+                    <i class="fa-brands fa-cc-mastercard text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        // --- 1. Mobile Menu Logic ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            if(menuOpen) {
+                mobileMenu.classList.add('open');
+                mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-xl"></i>';
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('open');
+                mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+                document.body.style.overflow = '';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+                document.body.style.overflow = '';
+                menuOpen = false;
+            });
+        });
+
+        // --- 2. Navbar Blur Effect on Scroll ---
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if(window.scrollY > 10) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
+        });
+
+        // --- 3. Form Submission & Confetti ---
+        const dealerForm = document.getElementById('dealer-form');
+        const successMsg = document.getElementById('form-success');
+
+        dealerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Trigger Confetti
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#007AFF', '#FFFFFF', '#8E8E93']
+            });
+            
+            // Show success, hide button
+            dealerForm.querySelector('button[type="submit"]').style.display = 'none';
+            successMsg.classList.remove('hidden');
+        });
+
+        // --- 4. GSAP Scroll Animations ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Simple reveal animation
+        gsap.utils.toArray('.gs-reveal').forEach(function(elem) {
+            gsap.from(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%", // Trigger when top of element hits 85% of viewport
+                    toggleActions: "play none none none"
+                },
+                y: 30,
+                autoAlpha: 0,
+                duration: 0.8,
+                ease: "power3.out"
+            });
+        });
+
+        // --- 5. Three.js Abstract/Minimalist 3D Stamp ---
+        const initThreeJS = () => {
+            const container = document.getElementById('hero-canvas');
+            if(!container) return;
+
+            // Scene setup
+            const scene = new THREE.Scene();
+            // Adjust camera to look better on mobile
+            const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // optimize performance
+            container.appendChild(renderer.domElement);
+
+            // Create a stylized 3D Self-Inking Stamp Structure
+            const stampGroup = new THREE.Group();
+
+            // Materials (iOS Blue & White/Light Gray themes)
+            const bodyMat = new THREE.MeshStandardMaterial({ 
+                color: 0xffffff, 
+                roughness: 0.2,
+                metalness: 0.1
+            });
+            const accentMat = new THREE.MeshStandardMaterial({ 
+                color: 0x007AFF, 
+                roughness: 0.3,
+                metalness: 0.2
+            });
+            const darkMat = new THREE.MeshStandardMaterial({
+                color: 0x1C1C1E,
+                roughness: 0.8
+            });
+
+            // Base/Frame
+            const frameGeo = new THREE.BoxGeometry(2, 3, 1.5);
+            const frame = new THREE.Mesh(frameGeo, bodyMat);
+            frame.position.y = 1.5;
+            
+            // Top Handle (Push down area)
+            const handleGeo = new THREE.BoxGeometry(2.2, 0.5, 1.7);
+            const handle = new THREE.Mesh(handleGeo, accentMat);
+            handle.position.y = 3.25;
+
+            // Inner Mechanism (Dark gray)
+            const mechGeo = new THREE.BoxGeometry(1.6, 1.5, 1.1);
+            const mech = new THREE.Mesh(mechGeo, darkMat);
+            mech.position.y = 1.2;
+
+            // Bottom Plate
+            const plateGeo = new THREE.BoxGeometry(2.1, 0.2, 1.6);
+            const plate = new THREE.Mesh(plateGeo, darkMat);
+            plate.position.y = -0.1;
+
+            stampGroup.add(frame);
+            stampGroup.add(handle);
+            stampGroup.add(mech);
+            stampGroup.add(plate);
+
+            // Center group and position it
+            // Move to the right for desktop, center top for mobile
+            if(window.innerWidth > 1024) {
+                stampGroup.position.set(4, -1.5, 0);
+            } else {
+                stampGroup.position.set(0, 1, 0);
+                stampGroup.scale.set(0.7, 0.7, 0.7);
+            }
+
+            scene.add(stampGroup);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+
+            const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            dirLight.position.set(5, 10, 7);
+            scene.add(dirLight);
+
+            const backLight = new THREE.DirectionalLight(0x007AFF, 0.5);
+            backLight.position.set(-5, 5, -5);
+            scene.add(backLight);
+
+            camera.position.z = 10;
+
+            // Mouse interaction for subtle rotation
+            let mouseX = 0;
+            let targetX = 0;
+            let targetY = 0;
+            const windowHalfX = window.innerWidth / 2;
+            const windowHalfY = window.innerHeight / 2;
+
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX - windowHalfX);
+                targetX = mouseX * 0.001;
+                targetY = (event.clientY - windowHalfY) * 0.001;
+            });
+
+            // Animation Loop
+            const animate = () => {
+                requestAnimationFrame(animate);
+
+                // Auto rotate slowly
+                stampGroup.rotation.y += 0.005;
+
+                // Mouse influence
+                stampGroup.rotation.x += 0.05 * (targetY - stampGroup.rotation.x);
+                stampGroup.rotation.z += 0.05 * (-targetX - stampGroup.rotation.z);
+
+                // Hover float effect
+                stampGroup.position.y += Math.sin(Date.now() * 0.002) * 0.002;
+
+                renderer.render(scene, camera);
+            };
+
+            animate();
+
+            // Handle Resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                
+                // Adjust position based on breakpoint
+                if(window.innerWidth > 1024) {
+                    stampGroup.position.set(4, -1.5, 0);
+                    stampGroup.scale.set(1, 1, 1);
+                } else {
+                    stampGroup.position.set(0, 1, 0);
+                    stampGroup.scale.set(0.7, 0.7, 0.7);
+                }
+            });
+        };
+
+        // Initialize Three.js on load
+        window.addEventListener('load', initThreeJS);
+
+    </script>
+</body>
+</html>
